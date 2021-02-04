@@ -24,10 +24,10 @@ const client = new tmi.Client({
         secure: true,
     },
     identity: {
-        username: 'junejamaz',
+        username: process.env.USERNAME,
         password: process.env.TMI_PASSWORD,
     },
-    channels: ['junejamaz'],
+    channels: [process.env.CHANNEL],
 });
 
 client.connect().catch(console.error);

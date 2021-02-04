@@ -1,46 +1,46 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const WebSocket = require("ws");
-const tmi = require("tmi.js");
+const WebSocket = require('ws');
+const tmi = require('tmi.js');
 
 const wss = new WebSocket.Server({ port: 6969 });
 
 let ws;
 
-wss.on("connection", function connection(_ws) {
-  _ws.on("message", function incoming(message) {
-    console.log("received: %s", message);
-  });
+wss.on('connection', function connection(_ws) {
+    _ws.on('message', function incoming(message) {
+        console.log('received: %s', message);
+    });
 
-  _ws.send("something");
+    _ws.send('something');
 
-  ws = _ws;
+    ws = _ws;
 });
 
 const client = new tmi.Client({
-  options: { debug: true, messagesLogLevel: "info" },
-  connection: {
-    reconnect: true,
-    secure: true,
-  },
-  identity: {
-    username: "storr20",
-    password: process.env.TMI_PASSWORD,
-  },
-  channels: ["storr20"],
+    options: { debug: true, messagesLogLevel: 'info' },
+    connection: {
+        reconnect: true,
+        secure: true,
+    },
+    identity: {
+        username: 'junejamaz',
+        password: process.env.TMI_PASSWORD,
+    },
+    channels: ['junejamaz'],
 });
 
 client.connect().catch(console.error);
 
 let lastCall = 0;
 
-client.on("message", (channel, tags, message, self) => {
-  if (ws) {
-    if (message.toLowerCase() === "!jerry") {
-      if (Date.now() > lastCall + 30000) {
-        ws.send("jerry");
-        lastCall = Date.now();
-      }
+client.on('message', (channel, tags, message, self) => {
+    if (ws) {
+        if (message.toLowerCase() === '!jerry') {
+            if (Date.now() > lastCall + 30000) {
+                ws.send('jerry');
+                lastCall = Date.now();
+            }
+        }
     }
-  }
 });

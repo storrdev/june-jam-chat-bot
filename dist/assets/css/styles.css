@@ -1,0 +1,43 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #00ff00;
+
+    overflow: hidden;
+}
+
+.jerry {
+    position: absolute;
+    height: 400px;
+    transition: all 3000ms;
+}
+
+.jerry#left {
+    transform: rotateZ(90deg) translateY(417px);
+    left: 0;
+}
+
+.jerry#right {
+    transform: rotateZ(-90deg) translateY(417px);
+    right: 0;
+}
+
+.jerry#bottom {
+    transform: translateY(500px);
+    bottom: 0;
+}
+
+.jerry#top {
+    transform: rotateZ(180deg) translateY(500px);
+    top: 0;
+}

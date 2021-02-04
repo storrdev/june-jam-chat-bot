@@ -1,0 +1,26 @@
+{
+  "name": "june-jam-chat-bot",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
+    "watch": "npx webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.20",
+    "tmi.js": "^1.7.1",
+    "ws": "^7.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
